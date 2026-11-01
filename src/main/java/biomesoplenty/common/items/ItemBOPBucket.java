@@ -1,0 +1,168 @@
+package biomesoplenty.common.items;
+
+import java.util.HashMap;
+import java.util.List;
+
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidHandler;
+import net.minecraftforge.fluids.ItemFluidContainer;
+
+import biomesoplenty.BiomesOPlenty;
+import biomesoplenty.api.content.BOPCFluids;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+public class ItemBOPBucket extends ItemFluidContainer {
+
+    private static HashMap<String, IIcon> bucketIcons = new HashMap<>();
+
+    public ItemBOPBucket() {
+        super(0, 1000);
+        this.maxStackSize = 1;
+        this.setCreativeTab(BiomesOPlenty.tabBiomesOPlenty);
+    }
+
+    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer player) {
+        MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, false);
+        if (movingobjectposition != null) {
+            ForgeDirection direction = ForgeDirection.getOrientation(movingobjectposition.sideHit);
+            int x = movingobjectposition.blockX;
+            int y = movingobjectposition.blockY;
+            int z = movingobjectposition.blockZ;
+            TileEntity tile = world.getTileEntity(x, y, z);
+            if (tile != null && tile instanceof IFluidHandler) {
+                IFluidHandler tank = (IFluidHandler) tile;
+                if (tank.fill(direction, this.getFluid(itemStack), false) == this.getCapacity(itemStack)) {
+                    tank.fill(direction, this.getFluid(itemStack), true);
+                    if (!player.capabilities.isCreativeMode) {
+                        return new ItemStack(Items.bucket);
+                    }
+                }
+
+                return itemStack;
+            }
+
+            if (movingobjectposition.sideHit == 0) {
+                y--;
+            }
+
+            if (movingobjectposition.sideHit == 1) {
+                y++;
+            }
+
+            if (movingobjectposition.sideHit == 2) {
+                z--;
+            }
+
+            if (movingobjectposition.sideHit == 3) {
+                z++;
+            }
+
+            if (movingobjectposition.sideHit == 4) {
+                x--;
+            }
+
+            if (movingobjectposition.sideHit == 5) {
+                x++;
+            }
+
+            if (!player.canPlayerEdit(x, y, z, movingobjectposition.sideHit, itemStack)) {
+                return itemStack;
+            }
+
+            if (this.tryPlaceContainedLiquid(itemStack, world, x, y, z) && !player.capabilities.isCreativeMode) {
+                return new ItemStack(Items.bucket);
+            }
+        }
+
+        return itemStack;
+    }
+
+    public boolean tryPlaceContainedLiquid(ItemStack itemStack, World world, int x, int y, int z) {
+        FluidStack fluid = this.getFluid(itemStack);
+        if (fluid != null && fluid.amount != 0) {
+            Material material = world.getBlock(x, y, z)
+                .getMaterial();
+            boolean isSolid = material.isSolid();
+            if (!world.isAirBlock(x, y, z) && isSolid) {
+                return false;
+            }
+
+            if (!world.isRemote && !isSolid && !material.isLiquid()) {
+                world.func_147480_a(x, y, z, true);
+            }
+
+            int meta = fluid.getFluid() == BOPCFluids.honey ? 7 : 0;
+            world.setBlock(
+                x,
+                y,
+                z,
+                fluid.getFluid()
+                    .getBlock(),
+                meta,
+                3);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void getSubItems(Item item, CreativeTabs creativeTabs, List list) {
+        ItemStack fluid = new ItemStack(item);
+        this.fill(fluid, new FluidStack(BOPCFluids.poison, 1000), true);
+        list.add(fluid);
+        fluid = new ItemStack(item);
+        this.fill(fluid, new FluidStack(BOPCFluids.blood, 1000), true);
+        list.add(fluid);
+        fluid = new ItemStack(item);
+        this.fill(fluid, new FluidStack(BOPCFluids.honey, 1000), true);
+        list.add(fluid);
+    }
+
+    public void registerIcons(IIconRegister iconRegister) {
+        bucketIcons.put("poison", iconRegister.registerIcon("biomesoplenty:bucket_poison"));
+        bucketIcons.put("honey", iconRegister.registerIcon("biomesoplenty:bucket_honey"));
+        bucketIcons.put("hell_blood", iconRegister.registerIcon("biomesoplenty:bucket_blood"));
+    }
+
+    public IIcon getIcon(ItemStack itemStack, int renderPass) {
+        FluidStack fluid = this.getFluid(itemStack);
+        if (fluid != null && fluid.amount != 0) {
+            IIcon icon = bucketIcons.get(
+                fluid.getFluid()
+                    .getName());
+            if (icon != null) {
+                return icon;
+            }
+        }
+
+        return Items.bucket.getIconFromDamage(0);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean requiresMultipleRenderPasses() {
+        return true;
+    }
+
+    public String getItemStackDisplayName(ItemStack itemStack) {
+        FluidStack fluid = this.getFluid(itemStack);
+        return fluid != null && fluid.amount != 0 ? StatCollector.translateToLocal(
+            fluid.getFluid()
+                .getUnlocalizedName()
+                .replace("fluid.", "item.") + "Bucket.name")
+            : Items.bucket.getUnlocalizedName() + ".name";
+    }
+}

@@ -1,0 +1,12 @@
+// Add your dependencies here
+
+dependencies {
+    compileOnly("thaumcraft:Thaumcraft:1.7.10-4.2.3.5:dev")
+    compileOnly("com.github.GTNewHorizons:ForestryMC:4.11.40:dev")
+    compileOnly("com.github.GTNewHorizons:ForgeMultipart:1.7.18:dev")
+
+    devOnlyNonPublishable("thaumcraft:Thaumcraft:1.7.10-4.2.3.5:dev")
+    devOnlyNonPublishable("com.github.GTNewHorizons:ForestryMC:4.11.40:dev")
+    devOnlyNonPublishable("com.github.GTNewHorizons:ForgeMultipart:1.7.18:dev")
+    devOnlyNonPublishable("com.github.GTNewHorizons:Baubles-Expanded:2.2.22-GTNH:dev")
+}

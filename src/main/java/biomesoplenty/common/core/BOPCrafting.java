@@ -1,0 +1,872 @@
+package biomesoplenty.common.core;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.api.content.BOPCItems;
+import biomesoplenty.common.recipes.BiomeEssenceRecipe;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+public class BOPCrafting {
+
+    private static List frontRecipes = new ArrayList();
+
+    public static void init() {
+        addOreRegistration();
+        addCraftingRecipes();
+        addSmeltingRecipes();
+        CraftingManager.getInstance()
+            .getRecipeList()
+            .addAll(0, frontRecipes);
+    }
+
+    private static void addCraftingRecipes() {
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 1),
+            new Object[] { new ItemStack(BOPCBlocks.flowers2, 1, 8) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 6),
+            new Object[] { new ItemStack(BOPCBlocks.flowers, 1, 1) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 13),
+            new Object[] { new ItemStack(BOPCBlocks.flowers, 1, 7) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 14),
+            new Object[] { new ItemStack(BOPCBlocks.flowers, 1, 5) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 9),
+            new Object[] { new ItemStack(BOPCBlocks.flowers, 1, 6) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 7),
+            new Object[] { new ItemStack(BOPCBlocks.flowers, 1, 15) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 12),
+            new Object[] { new ItemStack(BOPCBlocks.flowers, 1, 4) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 5),
+            new Object[] { new ItemStack(BOPCBlocks.flowers, 1, 8) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 10),
+            new Object[] { new ItemStack(BOPCBlocks.mushrooms, 1, 3) });
+        GameRegistry
+            .addShapelessRecipe(new ItemStack(Items.dye, 1, 8), new Object[] { new ItemStack(BOPCItems.misc, 1, 1) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 12),
+            new Object[] { new ItemStack(BOPCBlocks.flowers2, 1, 7) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.misc, 1, 6),
+            new Object[] { new ItemStack(BOPCBlocks.mushrooms, 1, 4) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 9),
+            new Object[] { new ItemStack(BOPCBlocks.flowers2, 1, 0) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.misc, 1, 8),
+            new Object[] { new ItemStack(BOPCBlocks.flowers2, 1, 1) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 14),
+            new Object[] { new ItemStack(BOPCBlocks.flowers2, 1, 2) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 5),
+            new Object[] { new ItemStack(BOPCBlocks.flowers2, 1, 3) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 1, 11),
+            new Object[] { new ItemStack(BOPCBlocks.flowers2, 1, 4) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.misc, 1, 5),
+            new Object[] { new ItemStack(BOPCBlocks.flowers2, 1, 5) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.misc, 1, 5),
+            new Object[] { new ItemStack(BOPCBlocks.mushrooms, 1, 2) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.misc, 1, 6),
+            new Object[] { new ItemStack(BOPCBlocks.plants, 1, 7) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.misc, 1, 7),
+            new Object[] { new ItemStack(BOPCBlocks.moss, 1, 0) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.misc, 1, 8),
+            new Object[] { new ItemStack(BOPCBlocks.flowers, 1, 9) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.misc, 1, 9),
+            new Object[] { new ItemStack(BOPCBlocks.flowers, 1, 2) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.stoneSingleSlab, 6, 2),
+            new Object[] { "RRR", 'R', BOPCBlocks.mudBricks });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.mudBricksStairs, 4),
+            new Object[] { "  R", " RR", "RRR", 'R', BOPCBlocks.mudBricks });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.mudBricksStairs, 4),
+            new Object[] { "R  ", "RR ", "RRR", 'R', BOPCBlocks.mudBricks });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 8),
+            new Object[] { new ItemStack(BOPCBlocks.logs3, 1, 0) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab2, 6, 0),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 8));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.redwoodStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 8));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.redwoodStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 8));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 9),
+            new Object[] { new ItemStack(BOPCBlocks.logs3, 1, 1) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab2, 6, 1),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 9));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.willowStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 9));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.willowStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 9));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 0),
+            new Object[] { new ItemStack(BOPCBlocks.logs1, 1, 0) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab1, 6, 0),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 0));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.sacredoakStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 0));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.sacredoakStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 0));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 3),
+            new Object[] { new ItemStack(BOPCBlocks.logs1, 1, 3) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab1, 6, 3),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 3));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.firStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 3));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.firStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 3));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 1),
+            new Object[] { new ItemStack(BOPCBlocks.logs1, 1, 1) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab1, 6, 1),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 1));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.cherryStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 1));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.cherryStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 1));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 2),
+            new Object[] { new ItemStack(BOPCBlocks.logs1, 1, 2) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab1, 6, 2),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 2));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.darkStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 2));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.darkStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 2));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 5),
+            new Object[] { new ItemStack(BOPCBlocks.logs2, 1, 1) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab1, 6, 5),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 5));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.magicStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 5));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.magicStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 5));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 7),
+            new Object[] { new ItemStack(BOPCBlocks.logs2, 1, 3) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab1, 6, 7),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 7));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.palmStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 7));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.palmStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 7));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 6),
+            new Object[] { new ItemStack(BOPCBlocks.logs2, 1, 2) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab1, 6, 6),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 6));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.mangroveStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 6));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.mangroveStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 6));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 4),
+            new Object[] { new ItemStack(BOPCBlocks.logs2, 1, 0) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab1, 6, 4),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 4));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.etherealStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 4));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.etherealStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 4));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 11),
+            new Object[] { new ItemStack(BOPCBlocks.logs4, 1, 0) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab2, 6, 2),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 11));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.pineStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 11));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.pineStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 11));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 12),
+            new Object[] { new ItemStack(BOPCBlocks.logs4, 1, 1) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab2, 6, 3),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 12));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.hellBarkStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 12));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.hellBarkStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 12));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 13),
+            new Object[] { new ItemStack(BOPCBlocks.logs4, 1, 2) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab2, 6, 4),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 13));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.jacarandaStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 13));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.jacarandaStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 13));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCBlocks.planks, 4, 14),
+            new Object[] { new ItemStack(BOPCBlocks.logs4, 1, 3) });
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.woodenSingleSlab2, 6, 5),
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 14));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.mahoganyStairs, 4),
+            "  R",
+            " RR",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 14));
+        addRecipeToFront(
+            new ItemStack(BOPCBlocks.mahoganyStairs, 4),
+            "R  ",
+            "RR ",
+            "RRR",
+            'R',
+            new ItemStack(BOPCBlocks.planks, 1, 14));
+        GameRegistry.addRecipe(
+            new ItemStack(Items.string, 1, 0),
+            new Object[] { "FFF", "FFF", "FFF", 'F', new ItemStack(BOPCBlocks.foliage, 1, 3) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.overgrownNetherrack, 1, 0),
+            new Object[] { "SSS", "SNS", "SSS", 'S', Items.wheat_seeds, 'N', Blocks.netherrack });
+        GameRegistry.addRecipe(
+            new ItemStack(Blocks.wool, 1, 0),
+            new Object[] { "CCC", "CCC", "CCC", 'C', new ItemStack(BOPCBlocks.plants, 1, 7) });
+        GameRegistry.addRecipe(
+            new ItemStack(Items.coal, 1),
+            new Object[] { "AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.misc, 1, 1) });
+        GameRegistry.addRecipe(new ItemStack(BOPCBlocks.mud, 1), new Object[] { "MM", "MM", 'M', BOPCItems.mudball });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.gemOre, 1, 1),
+            new Object[] { "AAA", "AAA", "AAA", 'A', new ItemStack(BOPCItems.gems, 1, 0) });
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCBlocks.gemOre, 1, 3),
+                new Object[] { "AAA", "AAA", "AAA", 'A', "gemRuby" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCBlocks.gemOre, 1, 5),
+                new Object[] { "AAA", "AAA", "AAA", 'A', "gemPeridot" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCBlocks.gemOre, 1, 7),
+                new Object[] { "AAA", "AAA", "AAA", 'A', "gemTopaz" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCBlocks.gemOre, 1, 9),
+                new Object[] { "AAA", "AAA", "AAA", 'A', "gemTanzanite" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCBlocks.gemOre, 1, 11),
+                new Object[] { "AAA", "AAA", "AAA", 'A', "gemMalachite" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCBlocks.gemOre, 1, 13),
+                new Object[] { "AAA", "AAA", "AAA", 'A', "gemSapphire" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCBlocks.gemOre, 1, 15),
+                new Object[] { "AAA", "AAA", "AAA", 'A', "gemAmber" }));
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.ash, 1),
+            new Object[] { "AA", "AA", 'A', new ItemStack(BOPCItems.misc, 1, 1) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.mudBricks, 1),
+            new Object[] { "MM", "MM", 'M', new ItemStack(BOPCItems.misc, 1, 0) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.crystal, 1),
+            new Object[] { "CC", "CC", 'C', new ItemStack(BOPCItems.misc, 1, 4) });
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(Blocks.mossy_cobblestone, 1, 0),
+                new Object[] { "MMM", "MCM", "MMM", 'M', BOPCBlocks.moss, 'C', "cobblestone" }));
+        GameRegistry.addRecipe(
+            new ItemStack(Blocks.stonebrick, 1, 1),
+            new Object[] { "MMM", "MSM", "MMM", 'M', BOPCBlocks.moss, 'S', Blocks.stonebrick });
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheWood, 1),
+                new Object[] { " MM", "M S", "  S", 'M', "plankWood", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheStone, 1),
+                new Object[] { " MM", "M S", "  S", 'M', "cobblestone", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheIron, 1),
+                new Object[] { " MM", "M S", "  S", 'M', "ingotIron", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheGold, 1),
+                new Object[] { " MM", "M S", "  S", 'M', "ingotGold", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheDiamond, 1),
+                new Object[] { " MM", "M S", "  S", 'M', "gemDiamond", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheWood, 1),
+                new Object[] { "MM ", "S M", "S  ", 'M', "plankWood", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheStone, 1),
+                new Object[] { "MM ", "S M", "S  ", 'M', "cobblestone", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheIron, 1),
+                new Object[] { "MM ", "S M", "S  ", 'M', "ingotIron", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheGold, 1),
+                new Object[] { "MM ", "S M", "S  ", 'M', "ingotGold", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheDiamond, 1),
+                new Object[] { "MM ", "S M", "S  ", 'M', "gemDiamond", 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.pickaxeMud, 1),
+                new Object[] { "###", " X ", " X ", '#', BOPCItems.mudball, 'X', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.shovelMud, 1),
+                new Object[] { "#", "X", "X", '#', BOPCItems.mudball, 'X', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.swordMud, 1),
+                new Object[] { "#", "#", "X", '#', BOPCItems.mudball, 'X', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.axeMud, 1),
+                new Object[] { "##", "#X", " X", '#', BOPCItems.mudball, 'X', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.hoeMud, 1),
+                new Object[] { "##", " X", " X", '#', BOPCItems.mudball, 'X', "stickWood" }));
+        GameRegistry
+            .addRecipe(new ItemStack(BOPCItems.helmetMud, 1), new Object[] { "###", "# #", '#', BOPCItems.mudball });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.chestplateMud, 1),
+            new Object[] { "# #", "###", "###", '#', BOPCItems.mudball });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.leggingsMud, 1),
+            new Object[] { "###", "# #", "# #", '#', BOPCItems.mudball });
+        GameRegistry
+            .addRecipe(new ItemStack(BOPCItems.bootsMud, 1), new Object[] { "# #", "# #", '#', BOPCItems.mudball });
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheMud, 1),
+                new Object[] { " MM", "M S", "  S", 'M', BOPCItems.mudball, 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheMud, 1),
+                new Object[] { "MM ", "S M", "S  ", 'M', BOPCItems.mudball, 'S', "stickWood" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.pickaxeAmethyst, 1),
+                new Object[] { "###", " X ", " X ", '#', new ItemStack(BOPCItems.gems, 1, 0), 'X', "ingotIron" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.shovelAmethyst, 1),
+                new Object[] { "#", "X", "X", '#', new ItemStack(BOPCItems.gems, 1, 0), 'X', "ingotIron" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.swordAmethyst, 1),
+                new Object[] { "#", "#", "X", '#', new ItemStack(BOPCItems.gems, 1, 0), 'X', "ingotIron" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.axeAmethyst, 1),
+                new Object[] { "##", "#X", " X", '#', new ItemStack(BOPCItems.gems, 1, 0), 'X', "ingotIron" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.hoeAmethyst, 1),
+                new Object[] { "##", " X", " X", '#', new ItemStack(BOPCItems.gems, 1, 0), 'X', "ingotIron" }));
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.helmetAmethyst, 1),
+            new Object[] { "###", "# #", '#', new ItemStack(BOPCItems.gems, 1, 0) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.chestplateAmethyst, 1),
+            new Object[] { "# #", "###", "###", '#', new ItemStack(BOPCItems.gems, 1, 0) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.leggingsAmethyst, 1),
+            new Object[] { "###", "# #", "# #", '#', new ItemStack(BOPCItems.gems, 1, 0) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.bootsAmethyst, 1),
+            new Object[] { "# #", "# #", '#', new ItemStack(BOPCItems.gems, 1, 0) });
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheAmethyst, 1),
+                new Object[] { " MM", "M S", "  S", 'M', new ItemStack(BOPCItems.gems, 1, 0), 'S', "ingotIron" }));
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.scytheAmethyst, 1),
+                new Object[] { "MM ", "S M", "S  ", 'M', new ItemStack(BOPCItems.gems, 1, 0), 'S', "ingotIron" }));
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.flowerBand, 1, 0),
+            new Object[] { "CCC", "C C", "CCC", 'C', new ItemStack(BOPCBlocks.flowers, 1, 0) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.flowerBand, 1, 1),
+            new Object[] { "CDC", "D D", "CDC", 'C', new ItemStack(BOPCBlocks.flowers, 1, 0), 'D',
+                new ItemStack(BOPCBlocks.flowers, 1, 5) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.flowerBand, 1, 2),
+            new Object[] { "CDC", "V V", "CDC", 'C', new ItemStack(BOPCBlocks.flowers, 1, 0), 'D',
+                new ItemStack(BOPCBlocks.flowers, 1, 5), 'V', new ItemStack(BOPCBlocks.flowers, 1, 8) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.flowerBand, 1, 3),
+            new Object[] { "CDT", "V V", "TDC", 'C', new ItemStack(BOPCBlocks.flowers, 1, 0), 'D',
+                new ItemStack(BOPCBlocks.flowers, 1, 5), 'V', new ItemStack(BOPCBlocks.flowers, 1, 8), 'T',
+                new ItemStack(BOPCBlocks.flowers, 1, 6) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.enderporter, 1, 0),
+            new Object[] { "IOI", "OAO", "IOI", 'I', Items.ender_eye, 'O', new ItemStack(BOPCItems.misc, 1, 10), 'A',
+                new ItemStack(BOPCItems.gems, 1, 0) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.dartBlower, 1),
+            new Object[] { "R R", "R R", "R R", 'R', new ItemStack(BOPCBlocks.plants, 1, 8) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCItems.dart, 4, 0),
+            new Object[] { "T", "R", "F", 'T', new ItemStack(BOPCBlocks.plants, 1, 5), 'R',
+                new ItemStack(BOPCBlocks.plants, 1, 8), 'F', Items.feather });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.dart, 1, 1),
+            new Object[] { new ItemStack(BOPCItems.jarFilled, 1, 1), new ItemStack(BOPCItems.dart, 1, 0) });
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.biomeFinder, 1, 0),
+                new Object[] { " E ", "ERE", " E ", 'E', "gemEmerald", 'R', "dustRedstone" }));
+        GameRegistry.addRecipe(new BiomeEssenceRecipe());
+        GameRegistry
+            .addRecipe(new ItemStack(BOPCBlocks.planks, 1, 10), new Object[] { "##", "##", '#', BOPCBlocks.bamboo });
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCItems.jarEmpty, 3, 0),
+                new Object[] { "# #", "# #", "###", '#', "blockGlass" }));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.food, 1, 10),
+            new Object[] { new ItemStack(BOPCItems.misc, 1, 11), new ItemStack(Items.potionitem, 1, 0),
+                new ItemStack(BOPCBlocks.flowers2, 1, 6), new ItemStack(BOPCBlocks.coral1, 1, 11),
+                new ItemStack(BOPCBlocks.plants, 1, 15), new ItemStack(BOPCItems.misc, 1, 4),
+                new ItemStack(BOPCItems.jarFilled, 1, 0), new ItemStack(BOPCItems.food, 1, 0), Items.sugar });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.flesh, 1, 0),
+            new Object[] { "##", "##", '#', new ItemStack(BOPCItems.misc, 1, 3) });
+        GameRegistry.addRecipe(
+            new ItemStack(Items.rotten_flesh, 1, 0),
+            new Object[] { "FFF", "FPF", "FFF", 'F', new ItemStack(BOPCItems.misc, 1, 3), 'P',
+                new ItemStack(BOPCItems.jarFilled, 1, 1) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.bamboo, 8),
+            new Object[] { " #", "# ", '#', new ItemStack(BOPCBlocks.planks, 1, 10) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.bamboo, 8),
+            new Object[] { "# ", " #", '#', new ItemStack(BOPCBlocks.planks, 1, 10) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.gems, 9, 0),
+            new Object[] { new ItemStack(BOPCBlocks.gemOre, 1, 1) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.gems, 9, 1),
+            new Object[] { new ItemStack(BOPCBlocks.gemOre, 1, 3) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.gems, 9, 2),
+            new Object[] { new ItemStack(BOPCBlocks.gemOre, 1, 5) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.gems, 9, 3),
+            new Object[] { new ItemStack(BOPCBlocks.gemOre, 1, 7) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.gems, 9, 4),
+            new Object[] { new ItemStack(BOPCBlocks.gemOre, 1, 9) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.gems, 9, 5),
+            new Object[] { new ItemStack(BOPCBlocks.gemOre, 1, 11) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.gems, 9, 6),
+            new Object[] { new ItemStack(BOPCBlocks.gemOre, 1, 13) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.gems, 9, 7),
+            new Object[] { new ItemStack(BOPCBlocks.gemOre, 1, 15) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 3, 15),
+            new Object[] { new ItemStack(BOPCBlocks.bones, 1, 0) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 6, 15),
+            new Object[] { new ItemStack(BOPCBlocks.bones, 1, 1) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(Items.dye, 12, 15),
+            new Object[] { new ItemStack(BOPCBlocks.bones, 1, 2) });
+        GameRegistry.addRecipe(
+            new ItemStack(BOPCBlocks.hive, 1, 0),
+            new Object[] { "##", "##", '#', new ItemStack(BOPCItems.misc, 1, 2) });
+        GameRegistry.addRecipe(
+            new ShapedOreRecipe(
+                new ItemStack(BOPCBlocks.hive, 1, 3),
+                new Object[] { "##", "##", '#', "foodFilledhoneycomb" }));
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.food, 2, 1),
+            new Object[] { new ItemStack(BOPCBlocks.mushrooms, 1, 0) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.jarFilled, 1, 1),
+            new Object[] { new ItemStack(BOPCBlocks.foliage, 1, 7), new ItemStack(BOPCItems.jarEmpty, 1, 0) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.food, 1, 13),
+            new Object[] { Items.bowl, new ItemStack(BOPCBlocks.plants, 1, 6) });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.food, 1, 4),
+            new Object[] { Items.bowl, new ItemStack(BOPCItems.food, 1, 0), Items.apple, Items.melon });
+        GameRegistry.addShapelessRecipe(
+            new ItemStack(BOPCItems.food, 1, 6),
+            new Object[] { Items.bowl, new ItemStack(BOPCBlocks.mushrooms, 1, 0),
+                new ItemStack(BOPCBlocks.mushrooms, 1, 1), new ItemStack(BOPCBlocks.mushrooms, 1, 2) });
+        GameRegistry.addRecipe(
+            new ShapelessOreRecipe(
+                new ItemStack(BOPCItems.food, 1, 5),
+                new Object[] { Items.bowl, "cropWildcarrots", "cropCarrot", "cropPotato" }));
+    }
+
+    private static void addSmeltingRecipes() {
+        GameRegistry.addSmelting(Blocks.dirt, new ItemStack(BOPCBlocks.driedDirt, 1), 0.0F);
+        GameRegistry.addSmelting(new ItemStack(BOPCBlocks.plants, 1, 12), new ItemStack(Items.dye, 1, 2), 0.2F);
+        GameRegistry.addSmelting(BOPCItems.mudball, new ItemStack(BOPCItems.misc, 1, 0), 0.0F);
+        GameRegistry.addSmelting(BOPCBlocks.logs1, new ItemStack(Items.coal, 1, 1), 0.15F);
+        GameRegistry.addSmelting(BOPCBlocks.logs2, new ItemStack(Items.coal, 1, 1), 0.15F);
+        GameRegistry.addSmelting(BOPCBlocks.logs4, new ItemStack(Items.coal, 1, 1), 0.15F);
+
+        for (int i = 0; i < 3; i++) {
+            GameRegistry.addSmelting(new ItemStack(BOPCBlocks.logs3, 1, i), new ItemStack(Items.coal, 1, 1), 0.15F);
+        }
+    }
+
+    private static void addOreRegistration() {
+        OreDictionary.registerOre("plankWood", new ItemStack(BOPCBlocks.planks, 1, 32767));
+        OreDictionary.registerOre("stickWood", new ItemStack(BOPCBlocks.bamboo));
+        OreDictionary.registerOre("stickWood", new ItemStack(BOPCBlocks.plants, 1, 8));
+        OreDictionary.registerOre("blockMeatRaw", new ItemStack(BOPCBlocks.flesh, 1, 0));
+        OreDictionary.registerOre("foodMushroompowder", new ItemStack(BOPCItems.food, 1, 1));
+        OreDictionary.registerOre("foodFruitsalad", new ItemStack(BOPCItems.food, 1, 4));
+        OreDictionary.registerOre("foodVeggiesalad", new ItemStack(BOPCItems.food, 1, 5));
+        OreDictionary.registerOre("foodMushroomsalad", new ItemStack(BOPCItems.food, 1, 6));
+        OreDictionary.registerOre("foodFilledhoneycomb", new ItemStack(BOPCItems.food, 1, 9));
+        OreDictionary.registerOre("foodAmbrosia", new ItemStack(BOPCItems.food, 1, 10));
+        OreDictionary.registerOre("foodBowlofrice", new ItemStack(BOPCItems.food, 1, 13));
+        OreDictionary.registerOre("cropWildcarrots", new ItemStack(BOPCItems.food, 1, 2));
+        OreDictionary.registerOre("cropPeach", new ItemStack(BOPCItems.food, 1, 3));
+        OreDictionary.registerOre("cropPersimmon", new ItemStack(BOPCItems.food, 1, 8));
+        OreDictionary.registerOre("cropTurnip", new ItemStack(BOPCItems.food, 1, 11));
+        OreDictionary.registerOre("cropPear", new ItemStack(BOPCItems.food, 1, 12));
+        OreDictionary.registerOre("listAllfruit", new ItemStack(BOPCItems.food, 1, 3));
+        OreDictionary.registerOre("listAllfruit", new ItemStack(BOPCItems.food, 1, 8));
+        OreDictionary.registerOre("listAllrootveggie", new ItemStack(BOPCItems.food, 1, 11));
+        OreDictionary.registerOre("listAllveggie", new ItemStack(BOPCItems.food, 1, 11));
+        OreDictionary.registerOre("listAllfruit", new ItemStack(BOPCItems.food, 1, 12));
+        OreDictionary.registerOre("seedTurnip", new ItemStack(BOPCItems.turnipSeeds));
+        OreDictionary.registerOre("listAllseed", new ItemStack(BOPCItems.turnipSeeds));
+        OreDictionary.registerOre("dyeBlue", new ItemStack(BOPCItems.misc, 1, 5));
+        OreDictionary.registerOre("dyeBrown", new ItemStack(BOPCItems.misc, 1, 6));
+        OreDictionary.registerOre("dyeGreen", new ItemStack(BOPCItems.misc, 1, 7));
+        OreDictionary.registerOre("dyeWhite", new ItemStack(BOPCItems.misc, 1, 8));
+        OreDictionary.registerOre("dyeBlack", new ItemStack(BOPCItems.misc, 1, 9));
+        OreDictionary.registerOre("gemRuby", new ItemStack(BOPCItems.gems, 1, 1));
+        OreDictionary.registerOre("gemPeridot", new ItemStack(BOPCItems.gems, 1, 2));
+        OreDictionary.registerOre("gemTopaz", new ItemStack(BOPCItems.gems, 1, 3));
+        OreDictionary.registerOre("gemTanzanite", new ItemStack(BOPCItems.gems, 1, 4));
+        OreDictionary.registerOre("gemMalachite", new ItemStack(BOPCItems.gems, 1, 5));
+        OreDictionary.registerOre("gemSapphire", new ItemStack(BOPCItems.gems, 1, 6));
+        OreDictionary.registerOre("gemAmber", new ItemStack(BOPCItems.gems, 1, 7));
+        OreDictionary.registerOre("oreRuby", new ItemStack(BOPCBlocks.gemOre, 1, 2));
+        OreDictionary.registerOre("oreTopaz", new ItemStack(BOPCBlocks.gemOre, 1, 6));
+        OreDictionary.registerOre("orePeridot", new ItemStack(BOPCBlocks.gemOre, 1, 4));
+        OreDictionary.registerOre("oreTanzanite", new ItemStack(BOPCBlocks.gemOre, 1, 8));
+        OreDictionary.registerOre("oreMalachite", new ItemStack(BOPCBlocks.gemOre, 1, 10));
+        OreDictionary.registerOre("oreSapphire", new ItemStack(BOPCBlocks.gemOre, 1, 12));
+        OreDictionary.registerOre("oreAmber", new ItemStack(BOPCBlocks.gemOre, 1, 14));
+        OreDictionary.registerOre("blockRuby", new ItemStack(BOPCBlocks.gemOre, 1, 3));
+        OreDictionary.registerOre("blockTopaz", new ItemStack(BOPCBlocks.gemOre, 1, 7));
+        OreDictionary.registerOre("blockPeridot", new ItemStack(BOPCBlocks.gemOre, 1, 5));
+        OreDictionary.registerOre("blockTanzanite", new ItemStack(BOPCBlocks.gemOre, 1, 9));
+        OreDictionary.registerOre("blockMalachite", new ItemStack(BOPCBlocks.gemOre, 1, 11));
+        OreDictionary.registerOre("blockSapphire", new ItemStack(BOPCBlocks.gemOre, 1, 13));
+        OreDictionary.registerOre("blockAmber", new ItemStack(BOPCBlocks.gemOre, 1, 15));
+        OreDictionary.registerOre("treeSapling", new ItemStack(BOPCBlocks.saplings, 1, 32767));
+        OreDictionary.registerOre("treeSapling", new ItemStack(BOPCBlocks.colorizedSaplings, 1, 32767));
+        OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs1, 1, 32767));
+        OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs2, 1, 32767));
+        OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs3, 1, 32767));
+        OreDictionary.registerOre("logWood", new ItemStack(BOPCBlocks.logs4, 1, 32767));
+        OreDictionary.registerOre("slabWood", new ItemStack(BOPCBlocks.woodenSingleSlab1, 1, 32767));
+        OreDictionary.registerOre("slabWood", new ItemStack(BOPCBlocks.woodenSingleSlab2, 1, 32767));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.redwoodStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.willowStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.sacredoakStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.firStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.cherryStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.darkStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.magicStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.palmStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.mangroveStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.etherealStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.pineStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.hellBarkStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.jacarandaStairs));
+        OreDictionary.registerOre("stairWood", new ItemStack(BOPCBlocks.mahoganyStairs));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.colorizedLeaves1, 1, 32767));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.colorizedLeaves2, 1, 32767));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.leaves1, 1, 32767));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.leaves2, 1, 32767));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.leaves3, 1, 32767));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.leaves4, 1, 32767));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.appleLeaves, 1, 32767));
+        OreDictionary.registerOre("treeLeaves", new ItemStack(BOPCBlocks.persimmonLeaves, 1, 32767));
+    }
+
+    public static ShapedRecipes addRecipeToFront(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+        String s = "";
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        if (par2ArrayOfObj[i] instanceof String[]) {
+            String[] astring = (String[]) par2ArrayOfObj[i++];
+
+            for (int l = 0; l < astring.length; l++) {
+                String s1 = astring[l];
+                k++;
+                j = s1.length();
+                s = s + s1;
+            }
+        } else {
+            while (par2ArrayOfObj[i] instanceof String) {
+                String s2 = (String) par2ArrayOfObj[i++];
+                k++;
+                j = s2.length();
+                s = s + s2;
+            }
+        }
+
+        HashMap hashmap = new HashMap();
+
+        while (i < par2ArrayOfObj.length) {
+            Character character = (Character) par2ArrayOfObj[i];
+            ItemStack itemstack1 = null;
+            if (par2ArrayOfObj[i + 1] instanceof Item) {
+                itemstack1 = new ItemStack((Item) par2ArrayOfObj[i + 1]);
+            } else if (par2ArrayOfObj[i + 1] instanceof Block) {
+                itemstack1 = new ItemStack((Block) par2ArrayOfObj[i + 1], 1, 32767);
+            } else if (par2ArrayOfObj[i + 1] instanceof ItemStack) {
+                itemstack1 = (ItemStack) par2ArrayOfObj[i + 1];
+            }
+
+            hashmap.put(character, itemstack1);
+            i += 2;
+        }
+
+        ItemStack[] aitemstack = new ItemStack[j * k];
+
+        for (int i1 = 0; i1 < j * k; i1++) {
+            char c0 = s.charAt(i1);
+            if (hashmap.containsKey(c0)) {
+                aitemstack[i1] = ((ItemStack) hashmap.get(c0)).copy();
+            } else {
+                aitemstack[i1] = null;
+            }
+        }
+
+        ShapedRecipes shapedrecipes = new ShapedRecipes(j, k, aitemstack, par1ItemStack);
+        frontRecipes.add(shapedrecipes);
+        return shapedrecipes;
+    }
+}

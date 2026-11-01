@@ -1,0 +1,158 @@
+package biomesoplenty.common.integration;
+
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+
+import biomesoplenty.api.BOPBlockHelper;
+import biomesoplenty.api.BOPItemHelper;
+import biomesoplenty.api.content.BOPCBlocks;
+import biomesoplenty.api.content.BOPCItems;
+import cpw.mods.fml.common.event.FMLInterModComms;
+
+public class TreecapitatorIntegration {
+
+    public static void init() {
+        String logs1 = BOPBlockHelper.getUniqueName(BOPCBlocks.logs1);
+        String logs2 = BOPBlockHelper.getUniqueName(BOPCBlocks.logs2);
+        String logs3 = BOPBlockHelper.getUniqueName(BOPCBlocks.logs3);
+        String logs4 = BOPBlockHelper.getUniqueName(BOPCBlocks.logs4);
+        String leavesColorized1 = BOPBlockHelper.getUniqueName(BOPCBlocks.colorizedLeaves1);
+        String leavesColorized2 = BOPBlockHelper.getUniqueName(BOPCBlocks.colorizedLeaves2);
+        String leaves1 = BOPBlockHelper.getUniqueName(BOPCBlocks.leaves1);
+        String leaves2 = BOPBlockHelper.getUniqueName(BOPCBlocks.leaves2);
+        String leaves3 = BOPBlockHelper.getUniqueName(BOPCBlocks.leaves3);
+        String leaves4 = BOPBlockHelper.getUniqueName(BOPCBlocks.leaves4);
+        NBTTagCompound tpModCfg = new NBTTagCompound();
+        tpModCfg.setString("modID", "BiomesOPlenty");
+        tpModCfg.setString(
+            "axeIDList",
+            BOPItemHelper.getUniqueName(BOPCItems.axeAmethyst) + "; " + BOPItemHelper.getUniqueName(BOPCItems.axeMud));
+        NBTTagList treeList = new NBTTagList();
+        NBTTagCompound tree = new NBTTagCompound();
+        tree.setString("treeName", "vanilla_oak");
+        tree.setString("logs", "");
+        tree.setString(
+            "leaves",
+            String.format(
+                "%s,0; %s,3; %s; %s,0; %s,0; %s,2; 18,2; 18,10",
+                leaves2,
+                leaves2,
+                BOPBlockHelper.getUniqueName(BOPCBlocks.appleLeaves),
+                BOPBlockHelper.getUniqueName(BOPCBlocks.persimmonLeaves),
+                leaves2,
+                leaves3));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "vanilla_birch");
+        tree.setString("logs", "");
+        tree.setString("leaves", String.format("%s,0", leaves1));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "vanilla_jungle");
+        tree.setString("logs", "");
+        tree.setString("leaves", "");
+        tree.setInteger("maxLeafIDDist", 3);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "sacredoak");
+        tree.setString("logs", String.format("%s,0; %s,4; %s,8", logs1, logs1, logs1));
+        tree.setString("leaves", String.format("%s,0; %s,8", leavesColorized1, leavesColorized1));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "cherry");
+        tree.setString("logs", String.format("%s,1; %s,5; %s,9", logs1, logs1, logs1));
+        tree.setString("leaves", String.format("%s,1; %s,9; %s,3; %s,11", leaves3, leaves3, leaves3, leaves3));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "darkwood");
+        tree.setString("logs", String.format("%s,2; %s,6; %s,10", logs1, logs1, logs1));
+        tree.setString("leaves", String.format("%s,3; %s,11", leaves1, leaves1));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "fir");
+        tree.setString("logs", String.format("%s,3; %s,7; %s,11", logs1, logs1, logs1));
+        tree.setString("leaves", String.format("%s,1; %s,9", leaves2, leaves2));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "ethereal");
+        tree.setString("logs", String.format("%s,0; %s,4; %s,8", logs2, logs2, logs2));
+        tree.setString("leaves", String.format("%s,2; %s,10", leaves2, leaves2));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "magic");
+        tree.setString("logs", String.format("%s,1; %s,5; %s,9", logs2, logs2, logs2));
+        tree.setString("leaves", String.format("%s,2; %s,10", leaves1, leaves1));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "mangrove");
+        tree.setString("logs", String.format("%s,2; %s,6; %s,10", logs2, logs2, logs2));
+        tree.setString("leaves", String.format("%s,1; %s,9", leavesColorized1, leavesColorized1));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "palm");
+        tree.setString("logs", String.format("%s,3; %s,7; %s,11", logs2, logs2, logs2));
+        tree.setString("leaves", String.format("%s,2; %s,10", leavesColorized1, leavesColorized1));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "redwood");
+        tree.setString("logs", String.format("%s,0; %s,4; %s,8", logs3, logs3, logs3));
+        tree.setString("leaves", String.format("%s,3; %s,11", leavesColorized1, leavesColorized1));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "willow");
+        tree.setString("logs", String.format("%s,1; %s,5; %s,9", logs3, logs3, logs3));
+        tree.setString("leaves", String.format("%s,0; %s,8", leavesColorized2, leavesColorized2));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "dead");
+        tree.setString("logs", String.format("%s,2; %s,6; %s,10", logs3, logs3, logs3));
+        tree.setString("leaves", "");
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "big_flower");
+        tree.setString("logs", String.format("%s,3; %s,7; %s,11", logs3, logs3, logs3));
+        tree.setString("leaves", "" + BOPBlockHelper.getUniqueName(BOPCBlocks.petals));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "pine");
+        tree.setString("logs", String.format("%s,0; %s,4; %s,8", logs4, logs4, logs4));
+        tree.setString("leaves", String.format("%s,1; %s,9", leavesColorized2, leavesColorized2));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "hellbark");
+        tree.setString("logs", String.format("%s,1; %s,5; %s,9", logs4, logs4, logs4));
+        tree.setString("leaves", String.format("%s,0; %s,8", leaves4, leaves4));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "jacaranda");
+        tree.setString("logs", String.format("%s,2; %s,6; %s,10", logs4, logs4, logs4));
+        tree.setString("leaves", String.format("%s,1; %s,9", leaves4, leaves4));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tree = new NBTTagCompound();
+        tree.setString("treeName", "mahogany");
+        tree.setString("logs", String.format("%s,3; %s,7; %s,11", logs4, logs4, logs4));
+        tree.setString("leaves", String.format("%s,2; %s,10", leavesColorized2, leavesColorized2));
+        tree.setBoolean("requireLeafDecayCheck", false);
+        treeList.appendTag(tree);
+        tpModCfg.setTag("trees", treeList);
+        FMLInterModComms.sendMessage("TreeCapitator", "ThirdPartyModConfig", tpModCfg);
+        FMLInterModComms.sendMessage("Treecapitator", "ThirdPartyModConfig", tpModCfg);
+    }
+}

@@ -1,0 +1,67 @@
+package biomesoplenty.common.world.features;
+
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+
+import biomesoplenty.api.biome.BOPBiome;
+import biomesoplenty.common.world.generation.WorldGeneratorBOP;
+
+public class WorldGenLongVine extends WorldGeneratorBOP {
+
+    private Block vine;
+    private int baseHeight;
+    private int randHeight;
+
+    public WorldGenLongVine(Block vine, int baseHeight, int randHeight) {
+        this.vine = vine;
+        this.baseHeight = baseHeight;
+        this.randHeight = randHeight;
+    }
+
+    @Override
+    public boolean generate(World world, Random rand, int x, int y, int z) {
+        while (world.isAirBlock(x, y, z) && y < 254) {
+            y++;
+        }
+
+        Block block = world.getBlock(x, y, z);
+        if (block != Blocks.netherrack) {
+            return false;
+        }
+
+        for (int iy = 1; iy <= rand.nextInt(this.randHeight) + this.baseHeight
+            && world.isAirBlock(x - 1, y - iy, z); iy++) {
+            world.setBlock(x - 1, y - iy, z, this.vine, 8, 2);
+        }
+
+        for (int iy = 1; iy <= rand.nextInt(this.randHeight) + this.baseHeight
+            && world.isAirBlock(x + 1, y - iy, z); iy++) {
+            world.setBlock(x + 1, y - iy, z, this.vine, 2, 2);
+        }
+
+        for (int iy = 1; iy <= rand.nextInt(this.randHeight) + this.baseHeight
+            && world.isAirBlock(x, y - iy, z - 1); iy++) {
+            world.setBlock(x, y - iy, z - 1, this.vine, 1, 2);
+        }
+
+        for (int iy = 1; iy <= rand.nextInt(this.randHeight) + this.baseHeight
+            && world.isAirBlock(x, y - iy, z + 1); iy++) {
+            world.setBlock(x, y - iy, z + 1, this.vine, 4, 2);
+        }
+
+        return true;
+    }
+
+    @Override
+    public void setupGeneration(World world, Random random, BOPBiome biome, String featureName, int x, int z) {
+        for (int i = 0; i < (Integer) biome.theBiomeDecorator.bopFeatures.getFeature(featureName); i++) {
+            int randX = x + random.nextInt(16) + 8;
+            int randZ = z + random.nextInt(16) + 8;
+            int randY = random.nextInt(256);
+            this.generate(world, random, randX, randY, randZ);
+        }
+    }
+}

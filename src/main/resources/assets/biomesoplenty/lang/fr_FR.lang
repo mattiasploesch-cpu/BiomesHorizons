@@ -1,0 +1,469 @@
+fr_FR traduction par Linyor
+tile.mud.mud.name=Boue
+tile.mud.quicksand.name=Sable mouvant
+
+tile.ashStone.name=Pierre de cendre
+tile.hardSand.name=Sable dur
+tile.hardDirt.name=Terre dure
+tile.hardIce.name=Glace dure
+tile.driedDirt.name=Terre déséchée
+tile.cragRock.name=Pierre des crags
+tile.mudBricks.name=Briques de Boue
+tile.biomeBlock.name=Minerai d'essence
+tile.crystal.name=Crystal céleste
+
+tile.rocks.limestone.name=Pierre verte
+tile.rocks.limestonesmooth.name=Pierre verte poli
+tile.rocks.siltstone.name=Siltite
+tile.rocks.siltstonesmooth.name=Siltite poli
+tile.rocks.shale.name=Schiste
+tile.rocks.shalesmooth.name=Schiste poli
+
+tile.ash.name=Bloc de cendre
+tile.flesh.name=Chair
+
+tile.plants.deadgrass.name=Herbe morte
+tile.plants.desertgrass.name=Herbe du désert
+tile.plants.desertsprouts.name=Pousses du désert
+tile.plants.dunegrass.name=Herbe des dunes
+tile.plants.spectralfern.name=Fougère spectral
+tile.plants.thorn.name=Ronces
+tile.plants.barley.name=Orge
+tile.plants.cattail.name=Massettes
+tile.plants.cattailtop.name=Massettes
+tile.plants.cattailbottom.name=Massettes
+tile.plants.rivercane.name=Rotin de rivière
+tile.plants.cactus.name=Petit Cactus
+tile.plants.witherwart.name=Verrue fannée
+tile.plants.reed.name=Roseau
+tile.plants.root.name=Racine
+
+tile.flowers.clover.name=Trèfles
+tile.flowers.swampflower.name=Fleur des marais
+tile.flowers.deadbloom.name=Clochettes de la mort
+tile.flowers.glowflower.name=Fleur luisante
+tile.flowers.hydrangea.name=Hydrangéa
+tile.flowers.cosmos.name=Cosmos orange
+tile.flowers.daffodil.name=Jonquille rose
+tile.flowers.wildflower.name=Fleur sauvage
+tile.flowers.violet.name=Violette
+tile.flowers.anemone.name=Anémone
+tile.flowers.lilyflower.name=Fleur de nénuphar
+tile.flowers.enderlotus.name=Lotus de l'Ender
+tile.flowers.bromeliad.name=Aloé
+tile.flowers.eyebulbbottom.name=Bulbe d'oeillet
+tile.flowers.eyebulbtop.name=Bulbe d'oeillet
+tile.flowers.dandelion.name=Pissenlit
+
+tile.flowers2.hibiscus.name=Hibiscus rose
+tile.flowers2.lilyofthevalley.name=Muguet
+tile.flowers2.burningblossom.name=Fleur ardente
+tile.flowers2.lavender.name=Lavande
+tile.flowers2.goldenrod.name=Solidago
+tile.flowers2.bluebells.name=Jacinthe des bois
+tile.flowers2.minersdelight.name=Délice des mines
+tile.flowers2.icyiris.name=Iris glacé
+tile.flowers2.rose.name=Rose
+
+tile.stoneFormations.stalagmite.name=Stalagmite
+tile.stoneFormations.stalactite.name=Stalactite
+
+tile.foliage.duckweed.name=Lentille d'eau
+tile.foliage.shortgrass.name=Herbe courte
+tile.foliage.mediumgrass.name=Herbe moyenne
+tile.foliage.hedgebottom.name=Haie
+tile.foliage.bush.name=Buisson
+tile.foliage.sprout.name=Pousses
+tile.foliage.hedgetop.name=Haie
+tile.foliage.poisonivy.name=Sumac vénéneux
+tile.foliage.berrybush.name=Buisson à baies
+tile.foliage.shrub.name=Arbuste
+tile.foliage.wheatgrass.name=Herbe de blé
+tile.foliage.dampgrass.name=Herbe humide
+tile.foliage.koru.name=Koru
+tile.foliage.cloverpatch.name=Tapis de trèfles
+tile.foliage.leafpile.name=Tas de feuilles
+tile.foliage.deadleafpile.name=Tas de feuilles mortes
+
+tile.petals.bigflowerred.name=Fleur rouge géante
+tile.petals.bigfloweryellow.name=Fleur jaune géante
+
+tile.mushrooms.toadstool.name=Psylocybes
+tile.mushrooms.portobello.name=Champignon de Paris
+tile.mushrooms.bluemilk.name=Lactaire indigo
+tile.mushrooms.glowshroom.name=Champignol luisant
+tile.mushrooms.flatmushroom.name=Champignon plat
+tile.mushrooms.shadowshroom.name=Champignon sombre
+
+tile.saplings.appleSapling.name=Pousse de pommier
+tile.saplings.yellowautumnSapling.name=Pousse d'arbe d'automne jaune
+tile.saplings.bambooSapling.name=Pousse de bambou
+tile.saplings.magicSapling.name=Pousse d'arbre magique
+tile.saplings.darkSapling.name=Pousse d'arbre sombre
+tile.saplings.deadSapling.name=Pousse d'arbre mourrant
+tile.saplings.firSapling.name=Pousse de grand sapin
+tile.saplings.holySapling.name=Pousse d'abre sacré
+tile.saplings.orangeautumnSapling.name=Pousse d'abre d'automne orange
+tile.saplings.originSapling.name=Pousse d'arbre originel
+tile.saplings.pinkcherrySapling.name=Pousse de cerisier rose
+tile.saplings.mapleSapling.name=Pousse d'érable
+tile.saplings.whitecherrySapling.name=Pousse de cerisier blanc
+tile.saplings.hellbarkSapling.name=Pousse de buisson du Nether
+tile.saplings.jacarandaSapling.name=Pousse de jacaranda
+tile.saplings.persimmonSapling.name=Pousse de plaqueminier
+
+tile.colorizedSaplings.sacredoakSapling.name=Pousse de chêne sacré
+tile.colorizedSaplings.mangroveSapling.name=Pousse de mangrove
+tile.colorizedSaplings.palmSapling.name=Pousse de palmier
+tile.colorizedSaplings.redwoodSapling.name=Pousse de Séquoia
+tile.colorizedSaplings.willowSapling.name=Pousse de saule
+tile.colorizedSaplings.pineSapling.name=Pousse de pin
+tile.colorizedSaplings.mahoganySapling.name=Pousse d'acajou
+
+tile.willow.name=Lianes de saule
+tile.ivy.name=Lierre
+tile.bamboo.name=Bambou
+tile.mudBricksStairs.name=Escaliers en briques de boue
+tile.originGrass.name=Herbe originelle
+tile.longGrass.name=Bloc d'Herbe longue
+tile.overgrownNetherrack.name=Roche du Nether envahi
+tile.treeMoss.name=Mousse d'arbre
+tile.flowerVine.name=Vignes en fleurs
+
+tile.coral1.kelpsingle.name=Varech
+tile.coral1.pinkcoral.name=Corail rose
+tile.coral1.orangecoral.name=Corail orange
+tile.coral1.bluecoral.name=Corail bleu
+tile.coral1.glowcoral.name=Corail étincelant
+tile.coral2.algae.name=Algue
+
+tile.bopGrass.spectralmoss.name=Mousse spectral
+tile.bopGrass.smolderinggrass.name=Bloc d'herbe fumante
+
+tile.gemOre.amethystore.name=Minerai d'améthyste
+tile.gemOre.amethystblock.name=Bloc d'améthyste
+tile.gemOre.rubyore.name=Minerai de rubis
+tile.gemOre.rubyblock.name=Bloc de rubis
+tile.gemOre.peridotore.name=Minerai de péridotite
+tile.gemOre.peridotblock.name=Bloc de péridotite
+tile.gemOre.topazore.name=Minerai de topaze
+tile.gemOre.topazblock.name=Bloc de topaze
+tile.gemOre.tanzaniteore.name=Minerai de tanzanite
+tile.gemOre.tanzaniteblock.name=Bloc de tanzanitz
+tile.gemOre.malachiteore.name=Minerai de malachite
+tile.gemOre.malachiteblock.name=Bloc de malachite
+tile.gemOre.sapphireore.name=Minerai de saphir
+tile.gemOre.sapphireblock.name=Bloc de saphir
+tile.gemOre.amberore.name=Minerai d'ambre
+tile.gemOre.amberblock.name=Bloc d'ambre
+
+tile.moss.name=Mousse
+
+tile.hive.honeycomb.name=Bloc d'alvéole d'abeille
+tile.hive.hive.name=Bloc de ruche
+tile.hive.honeycombempty.name=Bloc d'alvéole d'abeille vide
+tile.hive.honeycombfilled.name=Bloc d'alvéole d'abeille plein
+
+tile.honeyBlock.name=Bloc de miel
+
+tile.jellyBlock.strawberry.name=Strawberry Jelly Block
+tile.jellyBlock.raspberry.name=Raspberry Jelly Block
+tile.jellyBlock.grape.name=Grape Jelly Block
+
+tile.bones.bones_small.name=Petit segment d'os
+tile.bones.bones_medium.name=Moyen segment d'os
+tile.bones.bones_large.name=Grand segment d'os 
+
+tile.grave.name=Pierre tombale
+
+tile.stoneDoubleSlab.mudbrickSlab.name=Dalle en briques de boue
+tile.stoneSingleSlab.mudbrickSlab.name=Dalle en briques de boue
+
+tile.planks.sacredoakPlank.name=Planche de chêne sacré
+tile.planks.cherryPlank.name=Planche de cerisier
+tile.planks.darkPlank.name=Planche d'arbre sombre
+tile.planks.firPlank.name=Planche de grand sapin
+tile.planks.holyPlank.name=Planche d'arbre sacré
+tile.planks.magicPlank.name=Planche d'arbre magique
+tile.planks.mangrovePlank.name=Planche de mangrove
+tile.planks.palmPlank.name=Planche de palmier
+tile.planks.redwoodPlank.name=Planche de séquoia
+tile.planks.willowPlank.name=Planche de saule
+tile.planks.bambooThatching.name=Chaume de bambou
+tile.planks.pinePlank.name=Planche de pin
+tile.planks.hellBarkPlank.name=Planche de buisson du Nether
+tile.planks.jacarandaPlank.name=Planche de jacaranda
+tile.planks.mahoganyPlank.name=Planche d'acajou
+
+tile.logs1.sacredoakWood.name=Bois de chêne sacré
+tile.logs1.cherryWood.name=Bois de cerisier
+tile.logs1.darkWood.name=Bois d'arbre sombre
+tile.logs1.firWood.name=Bois de grand sapin
+
+tile.logs2.holyWood.name=Bois d'arbre sacré
+tile.logs2.magicWood.name=Bois d'arbre magique
+tile.logs2.mangroveWood.name=Bois de mangrove
+tile.logs2.palmWood.name=Bois de palmier
+
+tile.logs3.redwoodWood.name=Bois de séquoia
+tile.logs3.willowWood.name=Bois de saule
+tile.logs3.deadWood.name=Bois mort
+tile.logs3.bigflowerstemWood.name=Tige de fleur géante
+
+tile.logs4.pineWood.name=Bois de pin
+tile.logs4.hellbarkWood.name=Bois de buisson du Nether
+tile.logs4.jacarandaWood.name=Bois de jacaranda
+tile.logs4.mahoganyWood.name=Bois d'acajou
+
+tile.leaves1.yellowautumn.name=Feuilles d'automne jaunes
+tile.leaves1.bamboo.name=Feuilles de bambou
+tile.leaves1.magic.name=Feuilles magiques
+tile.leaves1.dark.name=Feuilles sombres
+
+tile.leaves2.dead.name=Feuilles mourantes
+tile.leaves2.fir.name=Feuilles de grand sapin
+tile.leaves2.holy.name=Feuilles sacrées
+tile.leaves2.orangeautumn.name=Feuilles d'automne oranges
+
+tile.leaves3.origin.name=Feuilles originels
+tile.leaves3.pinkcherry.name=Feuilles de cerisier roses
+tile.leaves3.maple.name=Feuilles d'érable
+tile.leaves3.whitecherry.name=Feuilles de cerisier blanches
+
+tile.leaves4.hellbark.name=Feuilles du Nether
+tile.leaves4.jacaranda.name=Feuilles de jacaranda
+
+tile.colorizedLeaves1.sacredoak.name=Feuilles de chêne sacré
+tile.colorizedLeaves1.mangrove.name=Feuilles de mangrove
+tile.colorizedLeaves1.palm.name=Feuilles de palmier
+tile.colorizedLeaves1.redwood.name=Feuilles de séquoia
+
+tile.colorizedLeaves2.willow.name=Feuilles de saule
+tile.colorizedLeaves2.pine.name=Feuilles de pin
+tile.colorizedLeaves2.mahogany.name=Feuilles d'acajou
+
+tile.appleLeaves.name=Feuilles de pommier
+tile.persimmonLeaves.name=Feuilles de plaqueminier
+
+tile.woodenDoubleSlab1.sacredoakSlab.name=Dalle en bois de chêne sacré
+tile.woodenDoubleSlab1.cherrySlab.name=Dalle en bois de cerisier
+tile.woodenDoubleSlab1.darkSlab.name=Dalle en bois sombre
+tile.woodenDoubleSlab1.firSlab.name=Dalle en bois de grand Sapin
+tile.woodenDoubleSlab1.holySlab.name=Dalle en bois sacré
+tile.woodenDoubleSlab1.magicSlab.name=dalle en bois magique
+tile.woodenDoubleSlab1.mangroveSlab.name=Dalle en bois de mangrove
+tile.woodenDoubleSlab1.palmSlab.name=Dalle en bois de palmier
+tile.woodenDoubleSlab2.redwoodSlab.name=Dalle en bois de séquoia
+tile.woodenDoubleSlab2.willowSlab.name=Dalle en bois de saule
+tile.woodenDoubleSlab2.pineSlab.name=Dalle en bois de pin
+tile.woodenDoubleSlab2.hell_barkSlab.name=Dalle en bois de buisson du Nether
+tile.woodenDoubleSlab2.jacarandaSlab.name=Dalle en bois de jacaranda
+tile.woodenDoubleSlab2.mahoganySlab.name=Dalle en bois d'acajou
+
+tile.woodenSingleSlab1.sacredoakSlab.name=Dalle en bois de chêne sacré
+tile.woodenSingleSlab1.cherrySlab.name=Dalle en bois de cerisier
+tile.woodenSingleSlab1.darkSlab.name=Dalle en bois sombre
+tile.woodenSingleSlab1.firSlab.name=Dalle en bois de grand sapin
+tile.woodenSingleSlab1.holySlab.name=Dalle en bois sacré
+tile.woodenSingleSlab1.magicSlab.name=Dalle en bois magique
+tile.woodenSingleSlab1.mangroveSlab.name=Dalle en bois de mangrove
+tile.woodenSingleSlab1.palmSlab.name=Dalle en bois de palmier
+tile.woodenSingleSlab2.redwoodSlab.name=Dalle en bois de séquoia
+tile.woodenSingleSlab2.willowSlab.name=Dalle en bois de saule
+tile.woodenSingleSlab2.pineSlab.name=Dalle en bois de pin
+tile.woodenSingleSlab2.hell_barkSlab.name=Dalle en bois de buisson du Nether
+tile.woodenSingleSlab2.jacarandaSlab.name=Dalle en bois de jaracanda
+tile.woodenSingleSlab2.mahoganySlab.name=Dalle en bois d'acajou
+
+tile.sacredoakStairs.name=Escaliers en bois de chêne sacré
+tile.cherryStairs.name=Escaliers en bois de cerisier
+tile.darkStairs.name=Escaliers en bois sombre
+tile.firStairs.name=Escaliers en bois de grand sapin
+tile.holyStairs.name=Escaliers en bois sacré
+tile.magicStairs.name=Escaliers en bois magique
+tile.mangroveStairs.name=Escaliers en bois de mangrove
+tile.palmStairs.name=Escaliers en bois de palmier
+tile.redwoodStairs.name=Escaliers en bois de séquoia
+tile.willowStairs.name=Escaliers en bois de saule
+tile.pineStairs.name=Escaliers en bois de pin
+tile.hellBarkStairs.name=Escaliers en bois de buisson du Nether
+tile.jacarandaStairs.name=Escaliers en bois de jacaranda
+tile.mahoganyStairs.name=Escalier en bois d'acajou
+
+item.food.berries.name=Baie
+item.food.shroompowder.name=Poudre de champignon
+item.food.wildcarrots.name=Carottes Sauvages
+item.food.sunflowerseeds.name=Graines de tournesol
+item.food.saladfruit.name=Salade de fruits
+item.food.saladveggie.name=Salade végétarienne
+item.food.saladshroom.name=Salade de champignons
+item.food.persimmon.name=Kaki
+item.food.filledhoneycomb.name=Alvéole d'abeille plein
+item.food.ambrosia.name=Ambroisie
+item.food.turnip.name=Navet
+
+item.turnipSeeds.name=Graines de navet
+
+item.dartBlower.name=Sarbacanne
+item.dart.dart.name=Fléchettes
+item.dart.poisondart.name=Fléchettes empoisonnées
+
+item.mudball.name=Boule de boue
+
+item.misc.mudbrick.name=Brique de boue
+item.misc.ash.name=Cendres
+item.misc.fleshchunk.name=Morceau de chair
+item.misc.emptyhoneycomb.name=Alvéole d'abeille vide
+item.misc.crystalshard.name=Éclat de crystal céleste
+item.misc.bluedye.name=Teinture bleue
+item.misc.browndye.name=Teinture marron
+item.misc.greendye.name=Teinture verte
+item.misc.whitedye.name=Teinture blanche
+item.misc.blackdye.name=Teinture noire
+item.misc.ghastlysoul.name=Ames d'effroi
+item.misc.pixiedust.name=Poussière de fée
+item.misc.ichor.name=Sang des dieux
+
+item.jarEmpty.name=Pot vide
+item.jarFilled.jarhoney.name=Pot de miel
+item.jarFilled.jarpoison.name=Pot d'extrait de poison
+item.jarFilled.jarpixie.name=Pot de poussière de fée
+
+item.gems.amethyst.name=Améthyste
+item.gems.ruby.name=Rubis
+item.gems.peridot.name=Péridot
+item.gems.topaz.name=Topaze
+item.gems.tanzanite.name=Tanzanite
+item.gems.malachite.name=Malachite
+item.gems.sapphire.name=Saphir
+item.gems.amber.name=Ambre
+
+item.pickaxeMud.name=Pioche en boue
+item.axeMud.name=Hache en boue
+item.shovelMud.name=Pelle en boue
+item.swordMud.name=Épée en boue
+item.hoeMud.name=Houe en boue
+item.helmetMud.name=Casque en boue
+item.chestplateMud.name=Plastron en boue
+item.leggingsMud.name=Jambières en boue
+item.bootsMud.name=Bottes en boue
+
+item.pickaxeAmethyst.name=Pioche en améthyste
+item.axeAmethyst.name=Hache en améthyste
+item.shovelAmethyst.name=Pelle en améthyste
+item.swordAmethyst.name=Épée en améthyste
+item.hoeAmethyst.name=Houe en améthyste
+item.helmetAmethyst.name=Casque en améthyste
+item.chestplateAmethyst.name=Plastron en améthyste
+item.leggingsAmethyst.name=Jambières en améthyste
+item.bootsAmethyst.name=Bottes en améthyste
+
+item.scytheWood.name=Faux en bois
+item.scytheStone.name=Faux en pierre
+item.scytheIron.name=Faux en fer
+item.scytheGold.name=Faux en or
+item.scytheDiamond.name=Faux en diamand
+item.scytheMud.name=Faux en boue
+item.scytheAmethyst.name=Faux en améthyste
+
+item.ancientStaff.ancientstaff.name=Bâton ancien
+item.ancientStaff.staffhandle.name=Manche de bâton ancien
+item.ancientStaff.staffpole.name=Centre de bâton ancien
+item.ancientStaff.stafftopper.name=Haut de bâton ancien
+item.ancientStaff.ancientstaffbroken.name=Bâton ancien brisé
+
+item.enderporter.name=Médaillon de l'Ender
+
+item.record_wanderer.name=Disque de musique
+item.record_corruption.name=Disque de musique
+
+item.record_wanderer.desc=Tim Rurkowski - Vagabond
+item.record_corruption.desc=???
+
+item.flowerBand.dullflowerband.name=Couronne de fleurs banale
+item.flowerBand.plainflowerband.name=Couronne de fleurs simple
+item.flowerBand.lushflowerband.name=Couronne de fleurs luxuriante
+item.flowerBand.exoticflowerband.name=Couronne de fleurs exotique
+
+item.wadingBoots.name=Bottes étanches
+item.flippers.name=Palmes
+
+item.biomeBook.name=Livre O' Biomes
+item.biomeFinder.name=Radar de biome
+item.biomeEssence.name=Essence de biome
+
+item.poisonBucket.name=Seau de poison
+item.honeyBucket.name=Seau de miel
+
+tile.poison.name=Poison
+tile.springWater.name=Eau de source
+tile.honey.name=Miel
+
+fluid.poison=Poison
+fluid.springWater=Eau de source
+fluid.honey=Miel
+
+biomeRadar.target=Cible:
+biomeRadar.foundBiome=Trouver biome!
+biomeRadar.scanBiome=Faites un clic droit pour chercher le biome
+
+enderporter.prevent=Une énergie mystique vous empêche de l'utiliser dans ce monde.
+
+phrase.bop.useBOPATGWorldtype=Le type de monde "Biomes O' Plenty" ou le type de monde "ATG world" doivent être utilisé dans l'ordre pour que les nouveaux biomes soient générés. Ce message s'affiche une fois seulement.
+phrase.bop.useBOPWorldtype=Le type de monde "Biomes O' Plenty" doit être utilisé dans l'ordre pour que les nouveaux biomes soient générés. Ce message s'affiche une fois seulement.
+phrase.bop.updateAvaliable=Vous n'utilisez pas la dernière version recommandée de Biomes O' Plenty. La dernière version recommandée est: v%s pour Minecraft %s
+
+potion.paralysis=Paralysie
+potion.possession=Possession
+
+entity.BiomesOPlenty.Glob.name=Fugu
+entity.BiomesOPlenty.JungleSpider.name=Araignée de la jungle
+entity.BiomesOPlenty.Phantom.name=Fantôme
+entity.BiomesOPlenty.Rosester.name=Coquelibird
+entity.BiomesOPlenty.Wasp.name=Guêpe
+entity.BiomesOPlenty.Bird.name=Oiseau
+entity.BiomesOPlenty.Pixie.name=Fée
+
+achievement.bop.achFlower=Jeune fleur
+achievement.bop.achFlower.desc=Devenir q'un avec la nature!
+
+achievement.bop.achBerry=Cueillette des petits fruits
+achievement.bop.achBerry.desc=Les choses simples de la vie ...
+achievement.bop.achMoss=Une pierre qui roule
+achievement.bop.achMoss.desc=Il rassemble rien de tout cela.
+achievement.bop.achThorn=Plutôt épineux
+achievement.bop.achThorn.desc=Plus mortel que les cactus!
+achievement.bop.achCoral=Nutritif
+achievement.bop.achCoral.desc=Que diriez-vous d'un grand morceau de corail cuit à la vapeur?
+
+achievement.bop.achFlowerBand=Le pouvoir des fleurs
+achievement.bop.achFlowerBand.desc=La routine, mec.
+achievement.bop.achDartBlower=Automatique
+achievement.bop.achDartBlower.desc=Vous allez tirer dans votre oeil, gamin!
+achievement.bop.achScythe=Tueur de plantes
+achievement.bop.achScythe.desc=La journée de travail de la faucheuse.
+achievement.bop.achEnderporter=Foyer, doux foyer
+achievement.bop.achEnderporter.desc=Utilisez les pouvoirs magiques du médaillon de l'Ender
+
+achievement.bop.achHoney=Aigre-doux
+achievement.bop.achHoney.desc=La terre de sang et de miel.
+achievement.bop.achWitherWart=Faner
+achievement.bop.achWitherWart.desc=Un maître du déguisement.
+achievement.bop.achGrave=Fossoyeur
+achievement.bop.achGrave.desc=La prochaine tombe.
+achievement.bop.achPhantom=Menace fantôme
+achievement.bop.achPhantom.desc=Voleur d'âmes.
+
+achievement.bop.achPromised=Sur-place!
+achievement.bop.achPromised.desc=Bienvenue à la terre promise!
+achievement.bop.achCelestial=Ciel bleu
+achievement.bop.achCelestial.desc=Je suis celui qui ... blocs ...
+achievement.bop.achAmbrosia=La boisson des dieux
+achievement.bop.achAmbrosia.desc=Ayez soif, mes amis.
+
+achievement.bop.achAllBOP=Succès O' Plenty
+achievement.bop.achAllBOP.desc=Vous avez tous les succès de Biomes O' Plenty!
+
+itemGroup.tabBiomesOPlenty=Biomes O' Plenty
+
+generator.BIOMESOP=Biomes O' Plenty

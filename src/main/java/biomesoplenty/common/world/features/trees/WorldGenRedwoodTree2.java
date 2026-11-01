@@ -1,0 +1,179 @@
+package biomesoplenty.common.world.features.trees;
+
+import java.util.Random;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraftforge.common.util.ForgeDirection;
+
+import biomesoplenty.api.content.BOPCBlocks;
+
+public class WorldGenRedwoodTree2 extends WorldGenAbstractTree {
+
+    private final Block wood;
+    private final Block leaves;
+    private final int woodMeta;
+    private final int leavesMeta;
+    private final int minTreeHeight;
+    private final int randomTreeHeight;
+
+    public WorldGenRedwoodTree2(Block wood, Block leaves, int woodMeta, int leavesMeta, boolean doBlockNotify,
+        int minTreeHeight, int randomTreeHeight) {
+        super(doBlockNotify);
+        this.wood = wood;
+        this.leaves = leaves;
+        this.woodMeta = woodMeta;
+        this.leavesMeta = leavesMeta;
+        this.minTreeHeight = minTreeHeight;
+        this.randomTreeHeight = randomTreeHeight;
+    }
+
+    public boolean generate(World world, Random random, int x, int y, int z) {
+        int treeHeight = random.nextInt(this.randomTreeHeight) + this.minTreeHeight;
+        if (y >= 1 && y + treeHeight + 1 <= 256) {
+            boolean isSoil = true;
+            boolean hasSpace = true;
+
+            for (int ix = -2; ix <= 2 && isSoil; ix++) {
+                for (int iz = -2; iz <= 2; iz++) {
+                    Block block2 = world.getBlock(x + ix, y - 1, z + iz);
+                    if (!block2.canSustainPlant(
+                        world,
+                        x + ix,
+                        y - 1,
+                        z + iz,
+                        ForgeDirection.UP,
+                        (BlockSapling) Blocks.sapling)) {
+                        isSoil = false;
+                        break;
+                    }
+                }
+            }
+
+            for (int ix = -2; ix <= 2 && hasSpace; ix++) {
+                for (int iy = 0; iy <= treeHeight && hasSpace; iy++) {
+                    for (int iz = -2; iz <= 2; iz++) {
+                        Block block2 = world.getBlock(x + ix, y + iy, z + iz);
+                        if (!block2.isAir(world, x + ix, y + iy, z + iz)) {
+                            hasSpace = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (isSoil && hasSpace && y < 256 - treeHeight - 1) {
+                for (int ix = -2; ix <= 2; ix++) {
+                    for (int iz = -2; iz <= 2; iz++) {
+                        if ((ix != -2 && ix != 2 || iz == 0) && (iz != -2 && iz != 2 || ix == 0)) {
+                            Block block2 = world.getBlock(x + ix, y - 1, z + iz);
+                            block2.onPlantGrow(world, x + ix, y - 1, z + iz, x + ix, y - 1, z + iz);
+                        }
+                    }
+                }
+
+                byte width = 9;
+                byte b1 = 0;
+
+                for (int k1 = y - width + treeHeight; k1 <= y + treeHeight; k1++) {
+                    int i3 = k1 - (y + treeHeight);
+                    int l1 = b1 + 1 - i3 / 6;
+
+                    for (int i2 = x - l1; i2 <= x + l1; i2++) {
+                        int j2 = i2 - x;
+
+                        for (int k2 = z - l1; k2 <= z + l1; k2++) {
+                            int l2 = k2 - z;
+                            if (Math.abs(j2) != l1 || Math.abs(l2) != l1 || random.nextInt(2) != 0 && i3 != 0) {
+                                Block block1 = world.getBlock(i2, k1, k2);
+                                if (block1.isAir(world, i2, k1, k2) || block1.isLeaves(world, i2, k1, k2)) {
+                                    this.setBlockAndNotifyAdequately(
+                                        world,
+                                        i2,
+                                        k1 + 6,
+                                        k2,
+                                        this.leaves,
+                                        this.leavesMeta);
+                                    this.setBlockAndNotifyAdequately(
+                                        world,
+                                        i2,
+                                        k1 + 12,
+                                        k2,
+                                        this.leaves,
+                                        this.leavesMeta);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                for (int var21 = 0; var21 < treeHeight; var21++) {
+                    Block block = world.getBlock(x, y + var21, z);
+                    if (block.isAir(world, x, y + var21, z) || block.isLeaves(world, x, y + var21, z)) {
+                        this.setBlockAndNotifyAdequately(world, x, y + treeHeight, z, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x, y + treeHeight + 1, z, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x, y + treeHeight + 2, z, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x, y + treeHeight + 3, z, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x, y + treeHeight + 4, z, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x, y + treeHeight + 5, z, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x, y + var21, z, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(
+                            world,
+                            x - 1,
+                            y + MathHelper.floor_double(var21 * 0.75),
+                            z,
+                            this.wood,
+                            this.woodMeta);
+                        this.setBlockAndNotifyAdequately(
+                            world,
+                            x + 1,
+                            y + MathHelper.floor_double(var21 * 0.75),
+                            z,
+                            this.wood,
+                            this.woodMeta);
+                        this.setBlockAndNotifyAdequately(
+                            world,
+                            x,
+                            y + MathHelper.floor_double(var21 * 0.75),
+                            z - 1,
+                            this.wood,
+                            this.woodMeta);
+                        this.setBlockAndNotifyAdequately(
+                            world,
+                            x,
+                            y + MathHelper.floor_double(var21 * 0.75),
+                            z + 1,
+                            this.wood,
+                            this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x - 1, y + var21 / 2, z - 1, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x + 1, y + var21 / 2, z - 1, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x - 1, y + var21 / 2, z + 1, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x + 1, y + var21 / 2, z + 1, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x - 2, y + var21 / 4, z, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x + 2, y + var21 / 4, z, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x, y + var21 / 4, z - 2, this.wood, this.woodMeta);
+                        this.setBlockAndNotifyAdequately(world, x, y + var21 / 4, z + 2, this.wood, this.woodMeta);
+                    }
+                }
+
+                for (int i = 0; i < 90; i++) {
+                    int randX = x - random.nextInt(8) + random.nextInt(8);
+                    int randY = y + random.nextInt(64);
+                    int randZ = z - random.nextInt(8) + random.nextInt(8);
+                    new WorldGenBOPShrub(BOPCBlocks.logs3, BOPCBlocks.colorizedLeaves1, 0, 3, BOPCBlocks.logs3)
+                        .generate(world, random, randX, randY, randZ);
+                }
+
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+}
